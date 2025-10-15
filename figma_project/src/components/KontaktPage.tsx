@@ -151,12 +151,22 @@ export function KontaktPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-lg font-semibold text-gray-900">
-                      0676 / 82 12 82 49 8
-                    </p>
-                    <p className="text-gray-600">
-                      Rudolf Schmierer
-                    </p>
+                  
+
+
+                    <a
+  href="tel:+43676821282498"
+  id="phoneNumberLink"
+  data-phone-number="0676821282498"
+  style={{ textDecoration: 'none', cursor: 'pointer' }}
+>
+  <p className="text-lg font-semibold text-gray-900 m-0">
+    0676 / 82 12 82 49 8
+  </p>
+  <p className="text-gray-600 m-0">
+    Rudolf Schmierer
+  </p>
+</a>
                   </CardContent>
                 </Card>
 
@@ -168,12 +178,19 @@ export function KontaktPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-lg font-semibold text-gray-900">
-                      rudi.schmierer@aon.at
-                    </p>
-                    <p className="text-gray-600">
-                      Für Anfragen und Informationen
-                    </p>
+                    <a
+  href="mailto:rudi.schmierer@aon.at"
+  className="email-link rounded-md hover:bg-gray-50 transition-colors duration-200"
+  style={{ textDecoration: 'none', cursor: 'pointer' }}
+  title="Auf dem Handy: Mail-App öffnen. Auf dem PC/Laptop: E-Mail-Adresse kopieren."
+>
+  <p className="text-lg font-semibold text-gray-900 m-0">
+    rudi.schmierer@aon.at
+  </p>
+  <p className="text-gray-600 m-0">
+    Für Anfragen und Informationen
+  </p>
+</a>
                   </CardContent>
                 </Card>
 
@@ -185,18 +202,26 @@ export function KontaktPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-lg font-semibold text-gray-900">
-                      RS-Trocknung
-                    </p>
-                    <p className="text-gray-600">
-                      Rudolf Schmierer
-                    </p>
-                    <p className="text-gray-600">
-                      Musterstraße 123
-                    </p>
-                    <p className="text-gray-600">
-                      1234 Musterort, Österreich
-                    </p>
+                    <a
+  href="https://www.google.com/maps/search/?api=1&query=Münsteuer+12+4980+Antiesenhofen+Österreich"
+  target="_blank" // Öffnet den Link in einem neuen Tab (empfohlen für externe Links)
+  rel="noopener noreferrer"
+  className=" rounded-md hover:bg-gray-50 transition-colors duration-200"
+  style={{ textDecoration: 'none', cursor: 'pointer' }}
+>
+  <p className="text-lg font-semibold text-gray-900 m-0">
+    RS-Trocknung
+  </p>
+  <p className="text-gray-600 m-0">
+    Rudolf Schmierer
+  </p>
+  <p className="text-gray-600 m-0 mt-1">
+    Münsteuer 12
+  </p>
+  <p className="text-gray-600 m-0">
+    4980 Antiesenhofen, Österreich
+  </p>
+</a>
                   </CardContent>
                 </Card>
 

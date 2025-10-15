@@ -200,14 +200,20 @@ export function UeberUnsPage() {
               Gespräch zur Verfügung. Überzeugen Sie sich selbst
               von unserer Kompetenz und unserem Service.
             </p>
-            <div className="bg-primary text-white p-6 rounded-lg inline-block">
-              <p className="text-xl font-semibold">
-                📞 000000000
-              </p>
-              <p className="text-green-100 mt-2">
-                Rudolf Schmierer
-              </p>
-            </div>
+            <a
+  href="tel:+43676821262498"
+  id="phoneNumberLink"
+  data-phone-number="0676821262498" 
+  className="bg-primary text-white p-6 rounded-lg inline-block text-center no-underline hover:bg-primary-dark transition-colors duration-200"
+  
+>
+  <p className="text-xl font-semibold m-0">
+    📞 0676/821262498
+  </p>
+  <p className="text-green-100 mt-2 m-0">
+    Rudolf Schmierer
+  </p>
+</a>
           </div>
         </div>
       </section>

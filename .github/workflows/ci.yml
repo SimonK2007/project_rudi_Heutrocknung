@@ -1,0 +1,48 @@
+# Name des Workflows
+name: Vite.js React CI/CD
+
+# Trigger: Wann soll der Workflow starten?
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Jobs, die ausgeführt werden sollen
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 1. Node.js-Umgebung einrichten
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Deine gewünschte Node-Version
+          cache: 'npm'
+
+      # 2. Abhängigkeiten installieren
+      - name: Install Dependencies
+        run: npm ci
+
+      # 3. Build erstellen (Nutzt dein Skript "vite build")
+      - name: Build Project with Vite
+        run: npm run build
+        
+      # HINWEIS: Wenn du Tests brauchst, musst du ein 'test'-Skript in package.json hinzufügen!
+      # - name: Run Tests
+      #   run: npm test
+
+      # 4. Build Artifact hochladen
+      # WICHTIG: Vite nutzt standardmäßig den Ordner 'dist', nicht 'build'
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vite-build-artifact
+          path: dist # ANPASSUNG auf den Vite-Standard 'dist'
+          retention-days: 1
