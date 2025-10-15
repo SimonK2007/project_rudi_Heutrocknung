@@ -23,11 +23,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20' 
-          # Das Caching wird nun funktionieren, da wir später das working-directory setzen.
           cache: 'npm'
+          # NEU: Sage der Action, wo die Lock-Datei für das Caching liegt!
+          cache-dependency-paths: ./figma_project/package-lock.json 
           
       - name: 3. Abhängigkeiten installieren
-        working-directory: ./figma_project  # <<< NEU: Arbeitsordner setzen
+        working-directory: ./figma_project
         run: npm ci
 
       - name: 4. Produktions-Build erstellen (Vite)
