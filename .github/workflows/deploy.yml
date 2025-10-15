@@ -1,15 +1,18 @@
-# .github/workflows/deploy.yml
 name: Build und Deploy Vite App auf GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main # Der Workflow wird bei jedem Push auf den main-Branch ausgeführt
+  
+  # Ermöglicht manuelles Starten über den Actions Tab in GitHub
+  workflow_dispatch:
 
+# WICHTIG: Erforderliche Berechtigungen für das Deployment
 permissions:
-  contents: write
-  pages: write 
-  id-token: write
+  contents: write # Erlaubt das Schreiben in den gh-pages Branch
+  pages: write    # Erlaubt das Verwalten von GitHub Pages
+  id-token: write # Erlaubt das Nutzen des GITHUB_TOKEN
 
 jobs:
   build_and_deploy:
@@ -19,27 +22,24 @@ jobs:
       - name: 1. Code auschecken
         uses: actions/checkout@v4
 
-      - name: 2. Node.js einrichten
+      - name: 2. Node.js Umgebung einrichten
         uses: actions/setup-node@v4
         with:
           node-version: '20' 
+          # Caching funktioniert jetzt, da package-lock.json im Root liegt
           cache: 'npm'
-          # NEU: Sage der Action, wo die Lock-Datei für das Caching liegt!
-          cache-dependency-paths: ./figma_project/package-lock.json 
           
       - name: 3. Abhängigkeiten installieren
-        working-directory: ./figma_project
-        run: npm ci
+        run: npm ci # Führt "npm ci" im Root aus
 
       - name: 4. Produktions-Build erstellen (Vite)
-        working-directory: ./figma_project  # <<< NEU: Arbeitsordner setzen
-        # Nutzt dein Skript "npm run build" -> erzeugt den Ordner "figma_project/build"
+        # Führt "npm run build" im Root aus (erzeugt den Ordner "build")
         run: npm run build
         
       - name: 5. Deployment auf GitHub Pages durchführen
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v4 # Beliebte Action für GitHub Pages Deploy
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # WICHTIG: Pfad zum Build-Ordner innerhalb des Projektordners
-          publish_dir: ./figma_project/build # <<< NEU: Pfad anpassen
+          # Pfad zu deinem benutzerdefinierten Build-Ordner
+          publish_dir: ./build
