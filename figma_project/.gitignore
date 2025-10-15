@@ -1,0 +1,17 @@
+# IDE-Einstellungen (z.B. Visual Studio Code)
+.vscode/
+
+# Node-Abhängigkeiten
+/node_modules
+/npm-debug.log
+/yarn-error.log
+/pnpm-debug.log
+.DS_Store
+
+# Build-Artefakte
+# 'build' ist dein custom Output-Ordner (aus vite.config.ts)
+/build
+
+# Temporäre Dateien von Vite/Cache
+.vite/
+/dist # Falls du den Output-Ordner änderst, ignoriere den neuen Namen
