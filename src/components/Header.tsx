@@ -23,16 +23,16 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
     <header className="bg-white shadow-sm border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Logo Section */}
-        <div className="flex justify-center py-6">
-          <div className="text-center">
-            <img
-              src={logo} 
-              alt="RS-Trocknung Logo"
-              className="h-32 w-auto mx-auto transition-all duration-500 hover:scale-110 hover:drop-shadow-lg cursor-pointer animate-pulse hover:animate-none"
-              onClick={() => onPageChange("home")}
-            />
+        <div className="flex-1 flex justify-center">
+            <div className="w-[240px] h-[70px] md:w-[480px] md:h-[140px]">
+              <img
+                src={logo}
+                alt="RS-Trocknung Logo"
+                className="w-full h-full object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
+                onClick={() => onPageChange("home")}
+              />
+            </div>
           </div>
-        </div>
 
         {/* Navigation Section */}
         <div className="border-t border-gray-200 pt-4 pb-2">
