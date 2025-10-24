@@ -26,7 +26,7 @@ export function Footer({ onNavigate }: FooterProps) {
               Kontakt
             </h4>
             <p className="text-gray-300 mb-2">
-              📞 0676 / 82 12 82 49 8
+              📞 0676 / 82 12 62 49 8
             </p>
             <p className="text-gray-300">
               ✉️ rudi.schmierer@aon.at

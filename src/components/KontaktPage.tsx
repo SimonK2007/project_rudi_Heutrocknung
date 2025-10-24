@@ -155,13 +155,13 @@ export function KontaktPage() {
 
 
                     <a
-                      href="tel:+43676821282498"
+                      href="tel:+43676821262498"
                       id="phoneNumberLink"
-                      data-phone-number="0676821282498"
+                      data-phone-number="0676821262498"
                       style={{ textDecoration: 'none', cursor: 'pointer' }}
                     >
                       <p className="text-lg font-semibold text-gray-900 m-0">
-                        0676 / 82 12 82 49 8
+                        0676 / 82 12 62 49 8
                       </p>
                       <p className="text-gray-600 m-0">
                         Rudolf Schmierer
