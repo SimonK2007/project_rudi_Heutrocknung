@@ -5,14 +5,18 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Shuffle, RotateCcw, Trophy, Gamepad2, Palette, Eye, EyeOff } from 'lucide-react';
 
+
 // Sliding Puzzle Component
 function SlidingPuzzle() {
   const [pieces, setPieces] = useState<number[]>([]);
   const [isComplete, setIsComplete] = useState(false);
   const [moves, setMoves] = useState(0);
   const [timer, setTimer] = useState(0);
+  const [isStarted, setIsStarted] = useState(false);
+
 
   const puzzleImage = "https://images.unsplash.com/photo-1665207052678-103915b0a03b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xvcmZ1bCUyMGNhcnRvb24lMjBmYXJtJTIwdHJhY3RvciUyMHNpbXBsZXxlbnwxfHx8fDE3NTg4MjM3NTR8MA&ixlib=rb-4.1.0&q=80&w=1080";
+
 
   // Initialize puzzle pieces (3x3 grid = 9 pieces, with empty space at position 8)
   const initializePuzzle = () => {
@@ -26,7 +30,9 @@ function SlidingPuzzle() {
     setIsComplete(false);
     setMoves(0);
     setTimer(0);
+    setIsStarted(false);
   };
+
 
   // Check if puzzle is complete
   const checkComplete = (currentPieces: number[]) => {
@@ -34,12 +40,19 @@ function SlidingPuzzle() {
     return currentPieces.every((piece, index) => piece === solution[index]);
   };
 
+
   // Move piece if possible
   const movePiece = (clickedIndex: number) => {
     if (isComplete) return;
 
+    // Timer beim ersten Klick starten
+    if (!isStarted) {
+      setIsStarted(true);
+    }
+
     const emptyIndex = pieces.indexOf(0);
     const validMoves = getValidMoves(emptyIndex);
+
 
     if (validMoves.includes(clickedIndex)) {
       const newPieces = [...pieces];
@@ -47,11 +60,13 @@ function SlidingPuzzle() {
       setPieces(newPieces);
       setMoves(moves + 1);
 
+
       if (checkComplete(newPieces)) {
         setIsComplete(true);
       }
     }
   };
+
 
   // Get valid moves for empty space
   const getValidMoves = (emptyIndex: number) => {
@@ -59,36 +74,42 @@ function SlidingPuzzle() {
     const row = Math.floor(emptyIndex / 3);
     const col = emptyIndex % 3;
 
+
     // Up, Down, Left, Right
     if (row > 0) validMoves.push(emptyIndex - 3);
     if (row < 2) validMoves.push(emptyIndex + 3);
     if (col > 0) validMoves.push(emptyIndex - 1);
     if (col < 2) validMoves.push(emptyIndex + 1);
 
+
     return validMoves;
   };
 
-  // Timer effect
+
+  // Timer effect - nur starten wenn isStarted true ist
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    if (!isComplete && pieces.length > 0) {
+    if (isStarted && !isComplete && pieces.length > 0) {
       interval = setInterval(() => {
         setTimer(timer => timer + 1);
       }, 1000);
     }
     return () => clearInterval(interval);
-  }, [isComplete, pieces.length]);
+  }, [isStarted, isComplete, pieces.length]);
+
 
   // Initialize on mount
   useEffect(() => {
     initializePuzzle();
   }, []);
 
+
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
+
 
   return (
     <div className="grid lg:grid-cols-2 gap-8 items-start">
@@ -108,14 +129,14 @@ function SlidingPuzzle() {
                 onClick={() => movePiece(index)}
                 className={`
                   aspect-square cursor-pointer transition-all duration-200 rounded-md border-2 
-                  ${piece === 0 
-                    ? 'bg-gray-300 border-gray-400' 
+                  ${piece === 0
+                    ? 'bg-gray-300 border-gray-400'
                     : 'bg-white border-gray-200 hover:border-primary hover:scale-105 shadow-sm hover:shadow-md'
                   }
                 `}
               >
                 {piece !== 0 && (
-                  <div 
+                  <div
                     className="w-full h-full rounded-md overflow-hidden relative"
                     style={{
                       backgroundImage: `url(${puzzleImage})`,
@@ -132,8 +153,9 @@ function SlidingPuzzle() {
             ))}
           </div>
 
+
           <div className="flex justify-center space-x-4">
-            <Button 
+            <Button
               onClick={initializePuzzle}
               variant="outline"
               className="flex items-center gap-2"
@@ -141,7 +163,7 @@ function SlidingPuzzle() {
               <Shuffle className="w-4 h-4" />
               Neu mischen
             </Button>
-            <Button 
+            <Button
               onClick={() => {
                 initializePuzzle();
                 setTimer(0);
@@ -154,6 +176,7 @@ function SlidingPuzzle() {
               Neustart
             </Button>
           </div>
+
 
           {isComplete && (
             <div className="text-center mt-6 p-4 bg-green-100 rounded-lg border-2 border-green-300">
@@ -168,6 +191,7 @@ function SlidingPuzzle() {
           )}
         </CardContent>
       </Card>
+
 
       {/* Reference Image and Instructions */}
       <div className="space-y-6">
@@ -185,6 +209,7 @@ function SlidingPuzzle() {
             </div>
           </CardContent>
         </Card>
+
 
         <Card className="bg-white shadow-lg">
           <CardHeader>
@@ -210,16 +235,20 @@ function SlidingPuzzle() {
   );
 }
 
+
 // Memory Matching Game Component
 function MemoryGame() {
-  const [cards, setCards] = useState<{id: number, emoji: string, isFlipped: boolean, isMatched: boolean}[]>([]);
+  const [cards, setCards] = useState<{ id: number, emoji: string, isFlipped: boolean, isMatched: boolean }[]>([]);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const [moves, setMoves] = useState(0);
   const [matches, setMatches] = useState(0);
   const [timer, setTimer] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
+
 
   const emojis = ['🚜', '🐄', '🐷', '🐔', '🌽', '🥕', '🍎', '🌾'];
+
 
   const initializeGame = () => {
     // Create pairs of cards
@@ -227,12 +256,13 @@ function MemoryGame() {
       { id: index * 2, emoji, isFlipped: false, isMatched: false },
       { id: index * 2 + 1, emoji, isFlipped: false, isMatched: false }
     ]);
-    
+
     // Shuffle cards
     for (let i = cardPairs.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [cardPairs[i], cardPairs[j]] = [cardPairs[j], cardPairs[i]];
     }
+
 
     setCards(cardPairs);
     setFlippedCards([]);
@@ -240,21 +270,31 @@ function MemoryGame() {
     setMatches(0);
     setTimer(0);
     setIsComplete(false);
+    setIsStarted(false);
   };
+
 
   const flipCard = (cardId: number) => {
     if (flippedCards.length === 2 || isComplete) return;
-    
+
     const card = cards.find(c => c.id === cardId);
     if (!card || card.isFlipped || card.isMatched) return;
 
-    const newCards = cards.map(c => 
+    // Timer beim ersten Klick starten
+    if (!isStarted) {
+      setIsStarted(true);
+    }
+
+
+    const newCards = cards.map(c =>
       c.id === cardId ? { ...c, isFlipped: true } : c
     );
     setCards(newCards);
 
+
     const newFlippedCards = [...flippedCards, cardId];
     setFlippedCards(newFlippedCards);
+
 
     if (newFlippedCards.length === 2) {
       setMoves(moves + 1);
@@ -262,17 +302,18 @@ function MemoryGame() {
       const firstCard = newCards.find(c => c.id === first);
       const secondCard = newCards.find(c => c.id === second);
 
+
       if (firstCard?.emoji === secondCard?.emoji) {
         // Match found
         setTimeout(() => {
-          setCards(prev => prev.map(c => 
-            c.id === first || c.id === second 
+          setCards(prev => prev.map(c =>
+            c.id === first || c.id === second
               ? { ...c, isMatched: true }
               : c
           ));
           setMatches(matches + 1);
           setFlippedCards([]);
-          
+
           // Check if game is complete
           if (matches + 1 === emojis.length) {
             setIsComplete(true);
@@ -281,8 +322,8 @@ function MemoryGame() {
       } else {
         // No match, flip back
         setTimeout(() => {
-          setCards(prev => prev.map(c => 
-            c.id === first || c.id === second 
+          setCards(prev => prev.map(c =>
+            c.id === first || c.id === second
               ? { ...c, isFlipped: false }
               : c
           ));
@@ -292,26 +333,30 @@ function MemoryGame() {
     }
   };
 
-  // Timer effect
+
+  // Timer effect - nur starten wenn isStarted true ist
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    if (!isComplete && cards.length > 0) {
+    if (isStarted && !isComplete && cards.length > 0) {
       interval = setInterval(() => {
         setTimer(timer => timer + 1);
       }, 1000);
     }
     return () => clearInterval(interval);
-  }, [isComplete, cards.length]);
+  }, [isStarted, isComplete, cards.length]);
+
 
   useEffect(() => {
     initializeGame();
   }, []);
+
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
+
 
   return (
     <div className="grid lg:grid-cols-3 gap-8 items-start">
@@ -333,8 +378,8 @@ function MemoryGame() {
             <div className="text-2xl font-bold text-accent-foreground">{formatTime(timer)}</div>
             <div className="text-sm text-gray-600">Zeit</div>
           </div>
-          
-          <Button 
+
+          <Button
             onClick={initializeGame}
             variant="outline"
             className="w-full flex items-center gap-2"
@@ -342,6 +387,7 @@ function MemoryGame() {
             <RotateCcw className="w-4 h-4" />
             Neues Spiel
           </Button>
+
 
           {isComplete && (
             <div className="text-center p-4 bg-green-100 rounded-lg border-2 border-green-300">
@@ -356,6 +402,7 @@ function MemoryGame() {
           )}
         </CardContent>
       </Card>
+
 
       {/* Memory Game Grid */}
       <Card className="bg-white shadow-lg lg:col-span-2">
@@ -391,6 +438,7 @@ function MemoryGame() {
         </CardContent>
       </Card>
 
+
       {/* Instructions */}
       <Card className="bg-white shadow-lg lg:col-span-3">
         <CardHeader>
@@ -423,6 +471,7 @@ function MemoryGame() {
   );
 }
 
+
 export function PuzzlePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-8">
@@ -436,6 +485,7 @@ export function PuzzlePage() {
           </p>
         </div>
 
+
         <Tabs defaultValue="sliding" className="w-full">
           <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">
             <TabsTrigger value="sliding" className="flex items-center gap-2">
@@ -447,15 +497,16 @@ export function PuzzlePage() {
               Memory Spiel
             </TabsTrigger>
           </TabsList>
-          
+
           <TabsContent value="sliding">
             <SlidingPuzzle />
           </TabsContent>
-          
+
           <TabsContent value="memory">
             <MemoryGame />
           </TabsContent>
         </Tabs>
+
 
         <Card className="bg-gradient-to-r from-primary to-green-600 text-white mt-8">
           <CardContent className="pt-6 text-center">

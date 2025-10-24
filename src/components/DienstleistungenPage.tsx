@@ -12,15 +12,15 @@ export function DienstleistungenPage() {
     },
     {
       id: 2,
-      title: "Getreidetrocknung",
+      title: "Ballen wickeln",
       videoId: "MDXupM1P1VQ",
       description:
-        "Schonende Getreidetrocknung für alle Arten von Getreide. Unsere Anlagen sind speziell für die Erhaltung der Keimfähigkeit und des Nährwerts konzipiert. Präzise Steuerung garantiert optimale Ergebnisse für Weizen, Gerste, Roggen und mehr.",
+        "gute arbeit",
       textLeft: false,
     },
     {
       id: 3,
-      title: "Korntrocknung in Aktion",
+      title: "Getreidetrocknung",
       mediaType: "image",
       mediaSrc: Korntrocknung, // ✅ use imported image variable here
       description:

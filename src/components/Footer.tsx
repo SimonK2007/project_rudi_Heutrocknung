@@ -1,10 +1,10 @@
 import { Separator } from "./ui/separator";
 
 interface FooterProps {
-  onPageChange: (page: string) => void;
+  onNavigate: (path: string) => void;
 }
 
-export function Footer({ onPageChange }: FooterProps) {
+export function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="bg-primary text-white py-8 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,7 +38,7 @@ export function Footer({ onPageChange }: FooterProps) {
               Rechtliches
             </h4>
             <button
-              onClick={() => onPageChange("impressum")}
+              onClick={() => onNavigate("/impressum")}
               className="text-gray-300 hover:text-white transition-colors underline"
             >
               Impressum

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './components/HomePage';
@@ -10,22 +10,41 @@ import { ImpressumPage } from './components/ImpressumPage';
 import { Toaster } from './components/ui/sonner';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+    };
+  }, []);
+
+  const navigate = (path: string) => {
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+  };
 
   const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
+    switch (currentPath) {
+      case '/home':
         return <HomePage />;
-      case 'dienstleistungen':
+      case '/dienstleistungen':
         return <DienstleistungenPage />;
-      case 'ueber-uns':
+      case '/ueber-uns':
         return <UeberUnsPage />;
-      case 'kontakt':
+      case '/kontakt':
         return <KontaktPage />;
-      case 'puzzle':
+      case '/puzzle':
         return <PuzzlePage />;
-      case 'impressum':
+      case '/impressum':
         return <ImpressumPage />;
+      case '/':
+        return <HomePage />;
       default:
         return <HomePage />;
     }
@@ -33,11 +52,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header currentPage={currentPage} onPageChange={setCurrentPage} />
+      <Header currentPath={currentPath} onNavigate={navigate} />
       <main className="flex-grow">
         {renderPage()}
       </main>
-      <Footer onPageChange={setCurrentPage} />
+      <Footer onNavigate={navigate} />
       <Toaster />
     </div>
   );

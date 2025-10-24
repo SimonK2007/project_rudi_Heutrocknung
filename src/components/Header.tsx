@@ -4,19 +4,19 @@ import { Button } from "./ui/button";
 import logo from "../assets/images/logo.png";
 
 interface HeaderProps {
-  currentPage: string;
-  onPageChange: (page: string) => void;
+  currentPath: string;
+  onNavigate: (path: string) => void;
 }
 
-export function Header({ currentPage, onPageChange }: HeaderProps) {
+export function Header({ currentPath, onNavigate }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "dienstleistungen", label: "Dienstleistungen" },
-    { id: "ueber-uns", label: "Über uns" },
-    { id: "puzzle", label: "Spiele" },
-    { id: "kontakt", label: "Kontakt" },
+    { id: "/home", label: "Home" },
+    { id: "/dienstleistungen", label: "Dienstleistungen" },
+    { id: "/ueber-uns", label: "Über uns" },
+    { id: "/puzzle", label: "Spiele" },
+    { id: "/kontakt", label: "Kontakt" },
   ];
 
   return (
@@ -24,15 +24,15 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Logo Section */}
         <div className="flex-1 flex justify-center">
-            <div className="w-[240px] h-[70px] md:w-[480px] md:h-[140px]">
-              <img
-                src={logo}
-                alt="RS-Trocknung Logo"
-                className="w-full h-full object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
-                onClick={() => onPageChange("home")}
-              />
-            </div>
+          <div className="w-[240px] h-[70px] md:w-[480px] md:h-[140px]">
+            <img
+              src={logo}
+              alt="RS-Trocknung Logo"
+              className="w-full h-full object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
+              onClick={() => onNavigate("/")}
+            />
           </div>
+        </div>
 
         {/* Navigation Section */}
         <div className="border-t border-gray-200 pt-4 pb-2">
@@ -42,12 +42,11 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => onPageChange(item.id)}
-                  className={`px-4 py-2 rounded-md transition-colors text-base ${
-                    currentPage === item.id
-                      ? "text-primary bg-accent font-medium"
-                      : "text-gray-700 hover:text-primary hover:bg-gray-100"
-                  }`}
+                  onClick={() => onNavigate(item.id)}
+                  className={`px-4 py-2 rounded-md transition-colors text-base ${currentPath === item.id
+                    ? "text-primary bg-accent font-medium"
+                    : "text-gray-700 hover:text-primary hover:bg-gray-100"
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -78,14 +77,13 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
                   <button
                     key={item.id}
                     onClick={() => {
-                      onPageChange(item.id);
+                      onNavigate(item.id);
                       setIsMenuOpen(false);
                     }}
-                    className={`block w-full text-left px-3 py-2 rounded-md transition-colors ${
-                      currentPage === item.id
-                        ? "text-primary bg-accent font-medium"
-                        : "text-gray-700 hover:text-primary hover:bg-gray-100"
-                    }`}
+                    className={`block w-full text-left px-3 py-2 rounded-md transition-colors ${currentPath === item.id
+                      ? "text-primary bg-accent font-medium"
+                      : "text-gray-700 hover:text-primary hover:bg-gray-100"
+                      }`}
                   >
                     {item.label}
                   </button>
