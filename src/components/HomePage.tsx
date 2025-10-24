@@ -14,14 +14,22 @@ import HeutrocknungInArbeit from "../assets/images/Heutrocknung-in-arbeit.png";
 import Holzbringung from "../assets/images/Holzbringung.png";
 import Korntrocknung from "../assets/images/Korntrocknung.png";
 import Ballenparty from "../assets/images/Ballenparty.png";
+import Schwaden2 from "../assets/images/Schwader2.jpg";
+import Kleinballenpresse from "../assets/images/Kleinballenpressen.jpg";
+import Kleinballenpresse2 from "../assets/images/Kleinballenpressen2.jpg";
+import Schwaden3 from "../assets/images/Schwader3.jpg";
+import Schüttguttransport from "../assets/images/Schüttguttransport.jpg";
+import Lader from "../assets/images/Lader.jpg";
+import Mulcharbeiten from "../assets/images/Mulcharbeiten.jpg";
+
 
 export function HomePage() {
   const vehicles = [
     {
       id: 1,
-      title: "Traktor New Holland T5.95/4020",
+      title: "Traktor New Holland T5.95",
       description:
-        "Unser leistungsstarker Traktor für alle Feldarbeiten. Mit 115 PS und modernster Technik ausgestattet.",
+        "Der Traktor für alle Feldarbeiten. Mit 115 PS und GPS ausgestattet.",
       image: NewHolland,
     },
     {
@@ -33,31 +41,52 @@ export function HomePage() {
     },
     {
       id: 3,
-      title: "Heutrocknung in Arbeit",
+      title: "Schwadarbeiten",
       description:
-        "Live-Einblick in unsere Heutrocknung – moderne Technik in Aktion.",
-      image: HeutrocknungInArbeit,
+        "Mittelschwader mit 7,80m Arbeitsbreite",
+      image: Schwaden2,
     },
     {
       id: 4,
-      title: "Holzbringung",
+      title: "Transportarbeiten",
       description:
-        "Zuverlässige Holzbringung mit modernen Maschinen – sicher, effizient und präzise.",
-      image: Holzbringung,
+        "Zuverlässige Transportarbeiten mit 16m³ Tandemkipper",
+      image: Schüttguttransport,
     },
     {
       id: 5,
       title: "Korntrocknung",
       description:
-        "Schonende Korntrocknung mit präziser Temperaturkontrolle für beste Ergebnisse.",
+        "Schonende Korntrocknung für beste Ergebnisse.",
       image: Korntrocknung,
     },
     {
       id: 6,
-      title: "Ballenparty",
+      title: "Kleinballenpresse",
       description:
-        "Feldarbeit darf auch Spaß machen – Impressionen von unserer Ballenparty!",
-      image: Ballenparty,
+        "Impressionen von unserer Ballenparty!",
+      image: Kleinballenpresse2,
+    },
+    {
+      id: 7,
+      title: "Lader Weidemann 2070",
+      description:
+        "Hubarbeiten mit Teleskoparm bis 3,7m Überladerhöhe",
+      image: Lader,
+    },
+    {
+      id: 8,
+      title: "Mulcharbeiten",
+      description:
+        "Mulcharbeiten mit 2,8m Arbeitsbreite",
+      image: Mulcharbeiten,
+    },
+    {
+      id: 9,
+      title: "Holzbringung",
+      description:
+        "kleiner Rückewagen mit Funkfernsteuerung für engste Verhältnisse",
+      image: Holzbringung,
     },
   ];
 
@@ -93,7 +122,7 @@ export function HomePage() {
             style={{ animationDelay: "0.3s" }}
           >
             Rudolf Schmierer bietet Ihnen moderne
-            Trocknungsdienstleistungen für beste Qualität und optimale Lagerung
+            Trocknungsdienstleistungen für beste Qualität
             Ihrer landwirtschaftlichen Erzeugnisse.
           </p>
         </div>

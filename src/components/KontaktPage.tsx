@@ -49,12 +49,12 @@ export function KontaktPage() {
       );
       const emailBody = encodeURIComponent(
         `Hallo,\n\n` +
-          `Name: ${formData.firstName} ${formData.lastName}\n` +
-          `E-Mail: ${formData.email}\n` +
-          `Telefon: ${formData.phone || "Nicht angegeben"}\n` +
-          `Betreff: ${formData.subject}\n\n` +
-          `Nachricht:\n${formData.message}\n\n` +
-          `Mit freundlichen Grüßen,\n${formData.firstName} ${formData.lastName}`,
+        `Name: ${formData.firstName} ${formData.lastName}\n` +
+        `E-Mail: ${formData.email}\n` +
+        `Telefon: ${formData.phone || "Nicht angegeben"}\n` +
+        `Betreff: ${formData.subject}\n\n` +
+        `Nachricht:\n${formData.message}\n\n` +
+        `Mit freundlichen Grüßen,\n${formData.firstName} ${formData.lastName}`,
       );
 
       // Create mailto link
@@ -109,7 +109,7 @@ export function KontaktPage() {
             <div className="border border-white animate-pulse" style={{ animationDelay: '1.2s', animationDuration: '3.0s' }}></div>
           </div>
         </div>
-        
+
         {/* Floating icons */}
         <div className="absolute inset-0 opacity-10">
           <Mail className="absolute top-1/4 left-1/6 w-8 h-8 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }} />
@@ -117,16 +117,16 @@ export function KontaktPage() {
           <MapPin className="absolute bottom-1/4 left-1/3 w-7 h-7 animate-bounce" style={{ animationDelay: '2s', animationDuration: '3.5s' }} />
           <Clock className="absolute top-1/3 right-1/3 w-5 h-5 animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '2.8s' }} />
         </div>
-        
+
         {/* Radial gradient animation */}
         <div className="absolute inset-0 bg-gradient-radial from-white/10 via-transparent to-transparent animate-pulse" style={{ animationDuration: '5s' }}></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white animate-fade-in-up">
             Kontakt
           </h1>
           <p className="text-xl text-green-100 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            Nehmen Sie Kontakt mit uns auf - wir beraten Sie
+            Nehmen Sie Kontakt mit uns auf - ich berate Sie
             gerne
           </p>
         </div>
@@ -151,22 +151,22 @@ export function KontaktPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                  
+
 
 
                     <a
-  href="tel:+43676821282498"
-  id="phoneNumberLink"
-  data-phone-number="0676821282498"
-  style={{ textDecoration: 'none', cursor: 'pointer' }}
->
-  <p className="text-lg font-semibold text-gray-900 m-0">
-    0676 / 82 12 82 49 8
-  </p>
-  <p className="text-gray-600 m-0">
-    Rudolf Schmierer
-  </p>
-</a>
+                      href="tel:+43676821282498"
+                      id="phoneNumberLink"
+                      data-phone-number="0676821282498"
+                      style={{ textDecoration: 'none', cursor: 'pointer' }}
+                    >
+                      <p className="text-lg font-semibold text-gray-900 m-0">
+                        0676 / 82 12 82 49 8
+                      </p>
+                      <p className="text-gray-600 m-0">
+                        Rudolf Schmierer
+                      </p>
+                    </a>
                   </CardContent>
                 </Card>
 
@@ -179,18 +179,18 @@ export function KontaktPage() {
                   </CardHeader>
                   <CardContent>
                     <a
-  href="mailto:rudi.schmierer@aon.at"
-  className="email-link rounded-md hover:bg-gray-50 transition-colors duration-200"
-  style={{ textDecoration: 'none', cursor: 'pointer' }}
-  title="Auf dem Handy: Mail-App öffnen. Auf dem PC/Laptop: E-Mail-Adresse kopieren."
->
-  <p className="text-lg font-semibold text-gray-900 m-0">
-    rudi.schmierer@aon.at
-  </p>
-  <p className="text-gray-600 m-0">
-    Für Anfragen und Informationen
-  </p>
-</a>
+                      href="mailto:rudi.schmierer@aon.at"
+                      className="email-link rounded-md hover:bg-gray-50 transition-colors duration-200"
+                      style={{ textDecoration: 'none', cursor: 'pointer' }}
+                      title="Auf dem Handy: Mail-App öffnen. Auf dem PC/Laptop: E-Mail-Adresse kopieren."
+                    >
+                      <p className="text-lg font-semibold text-gray-900 m-0">
+                        rudi.schmierer@aon.at
+                      </p>
+                      <p className="text-gray-600 m-0">
+                        Für Anfragen und Informationen
+                      </p>
+                    </a>
                   </CardContent>
                 </Card>
 
@@ -203,25 +203,25 @@ export function KontaktPage() {
                   </CardHeader>
                   <CardContent>
                     <a
-  href="https://www.google.com/maps/search/?api=1&query=Münsteuer+12+4980+Antiesenhofen+Österreich"
-  target="_blank" // Öffnet den Link in einem neuen Tab (empfohlen für externe Links)
-  rel="noopener noreferrer"
-  className=" rounded-md hover:bg-gray-50 transition-colors duration-200"
-  style={{ textDecoration: 'none', cursor: 'pointer' }}
->
-  <p className="text-lg font-semibold text-gray-900 m-0">
-    RS-Trocknung
-  </p>
-  <p className="text-gray-600 m-0">
-    Rudolf Schmierer
-  </p>
-  <p className="text-gray-600 m-0 mt-1">
-    Münsteuer 12
-  </p>
-  <p className="text-gray-600 m-0">
-    4980 Antiesenhofen, Österreich
-  </p>
-</a>
+                      href="https://www.google.com/maps/search/?api=1&query=Münsteuer+12+4980+Antiesenhofen+Österreich"
+                      target="_blank" // Öffnet den Link in einem neuen Tab (empfohlen für externe Links)
+                      rel="noopener noreferrer"
+                      className=" rounded-md hover:bg-gray-50 transition-colors duration-200"
+                      style={{ textDecoration: 'none', cursor: 'pointer' }}
+                    >
+                      <p className="text-lg font-semibold text-gray-900 m-0">
+                        RS-Trocknung
+                      </p>
+                      <p className="text-gray-600 m-0">
+                        Rudolf Schmierer
+                      </p>
+                      <p className="text-gray-600 m-0 mt-1">
+                        Münsteuer 12
+                      </p>
+                      <p className="text-gray-600 m-0">
+                        4980 Antiesenhofen, Österreich
+                      </p>
+                    </a>
                   </CardContent>
                 </Card>
 
@@ -239,7 +239,7 @@ export function KontaktPage() {
                           Montag - Freitag:
                         </span>
                         <span className="text-gray-900">
-                          7:00 - 18:00 Uhr
+                          7:00 - 20:00 Uhr
                         </span>
                       </div>
                       <div className="flex justify-between">
@@ -247,7 +247,7 @@ export function KontaktPage() {
                           Samstag:
                         </span>
                         <span className="text-gray-900">
-                          8:00 - 16:00 Uhr
+                          9:00 - 12:00 Uhr
                         </span>
                       </div>
                       <div className="flex justify-between">
@@ -433,34 +433,7 @@ export function KontaktPage() {
             </div>
           </div>
 
-          {/* Additional Information */}
-          <div className="mt-16 bg-accent p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Wichtige Hinweise
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">
-                  Notfälle & Erntezeit
-                </h4>
-                <p className="text-gray-700">
-                  Während der Erntezeit sind wir auch außerhalb
-                  der regulären Öffnungszeiten erreichbar. Bei
-                  dringenden Anfragen rufen Sie uns einfach an.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">
-                  Beratung vor Ort
-                </h4>
-                <p className="text-gray-700">
-                  Gerne kommen wir auch zu Ihnen auf den Hof für
-                  eine persönliche Beratung. Vereinbaren Sie
-                  einfach einen Termin mit uns.
-                </p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
     </div>

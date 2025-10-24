@@ -13,10 +13,10 @@ export function UeberUnsPage() {
           <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '1.5s', animationDuration: '2s' }}></div>
           <div className="absolute top-1/3 left-2/3 w-4 h-4 bg-white rounded-full animate-ping" style={{ animationDelay: '2s', animationDuration: '2.8s' }}></div>
         </div>
-        
+
         {/* Gradient overlay with animation */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent animate-pulse" style={{ animationDuration: '4s' }}></div>
-        
+
         {/* Subtle growing circles */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -25,7 +25,7 @@ export function UeberUnsPage() {
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-white rounded-full animate-pulse" style={{ animationDelay: '4s', animationDuration: '6s' }}></div>
           </div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white animate-fade-in-up">
             Über uns
@@ -40,7 +40,7 @@ export function UeberUnsPage() {
       {/* Main Content */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="grid grid-cols-1  gap-12 items-center mb-16">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Rudolf Schmierer
@@ -66,75 +66,6 @@ export function UeberUnsPage() {
                 Ihrer wertvollen Ernte.
               </p>
             </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Unser Versprechen
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">
-                      ✓
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">
-                      Qualität
-                    </h4>
-                    <p className="text-gray-600">
-                      Höchste Standards bei allen
-                      Arbeitsabläufen
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">
-                      ✓
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">
-                      Zuverlässigkeit
-                    </h4>
-                    <p className="text-gray-600">
-                      Termingerechte Ausführung aller Aufträge
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">
-                      ✓
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">
-                      Moderne Technik
-                    </h4>
-                    <p className="text-gray-600">
-                      Neueste Anlagen für optimale Ergebnisse
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">
-                      ✓
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">
-                      Faire Preise
-                    </h4>
-                    <p className="text-gray-600">
-                      Transparente und faire Kostengestaltung
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Company Values */}
@@ -153,7 +84,7 @@ export function UeberUnsPage() {
                   Nachhaltigkeit
                 </h3>
                 <p className="text-gray-600">
-                  Umweltschonende Verfahren und nachhaltige
+                  Effiziente Verfahren und nachhaltige
                   Landwirtschaft stehen im Mittelpunkt unseres
                   Handelns.
                 </p>
@@ -196,24 +127,24 @@ export function UeberUnsPage() {
               Lernen Sie uns kennen
             </h2>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
-              Gerne stehen wir Ihnen für ein persönliches
+              Gerne stehe ich Ihnen für ein persönliches
               Gespräch zur Verfügung. Überzeugen Sie sich selbst
-              von unserer Kompetenz und unserem Service.
+              von meiner Kompetenz und meinem Service.
             </p>
             <a
-  href="tel:+43676821262498"
-  id="phoneNumberLink"
-  data-phone-number="0676821262498" 
-  className="bg-primary text-white p-6 rounded-lg inline-block text-center no-underline hover:bg-primary-dark transition-colors duration-200"
-  
->
-  <p className="text-xl font-semibold m-0">
-    📞 0676/821262498
-  </p>
-  <p className="text-green-100 mt-2 m-0">
-    Rudolf Schmierer
-  </p>
-</a>
+              href="tel:+43676821262498"
+              id="phoneNumberLink"
+              data-phone-number="0676821262498"
+              className="bg-primary text-white p-6 rounded-lg inline-block text-center no-underline hover:bg-primary-dark transition-colors duration-200"
+
+            >
+              <p className="text-xl font-semibold m-0">
+                📞 0676/821262498
+              </p>
+              <p className="text-green-100 mt-2 m-0">
+                Rudolf Schmierer
+              </p>
+            </a>
           </div>
         </div>
       </section>

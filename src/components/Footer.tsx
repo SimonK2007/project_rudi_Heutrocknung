@@ -17,7 +17,7 @@ export function Footer({ onNavigate }: FooterProps) {
               Rudolf Schmierer
             </p>
             <p className="text-gray-300">
-              Professionelle Trocknung von Heu und Schüttgut
+              Ihr Rundumdienstleister
             </p>
           </div>
 

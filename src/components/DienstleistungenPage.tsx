@@ -4,10 +4,10 @@ export function DienstleistungenPage() {
   const services = [
     {
       id: 1,
-      title: "Heutrocknung",
+      title: "Schüttguttransport",
       videoId: "5NdNkhPxEgY",
       description:
-        "Professionelle Heutrocknung mit modernster Technik. Wir sorgen für optimale Trocknungsbedingungen und beste Qualität Ihres Heus. Durch schonende Trocknung bei kontrollierten Temperaturen erhalten wir den Nährwert und die Qualität optimal.",
+        "Wir bieten professionelle Lösungen für den Transport und die Trocknung von Schüttgut und Heu. Wir sorgen für einen sicheren und effizienten Transport.",
       textLeft: true,
     },
     {
@@ -15,7 +15,7 @@ export function DienstleistungenPage() {
       title: "Ballen wickeln",
       videoId: "MDXupM1P1VQ",
       description:
-        "gute arbeit",
+        "Ballen werden mit 750er Folie umwickelt und mittels Fernbedienung abgeworfen. (Beladung mit Lader)",
       textLeft: false,
     },
     {
@@ -24,9 +24,10 @@ export function DienstleistungenPage() {
       mediaType: "image",
       mediaSrc: Korntrocknung, // ✅ use imported image variable here
       description:
-        "Sehen Sie unsere moderne Korntrockungsanlage in Aktion. Diese hochmoderne Technik gewährleistet eine gleichmäßige und schonende Trocknung Ihres Getreides. Mit präziser Temperaturkontrolle und optimaler Luftzirkulation erreichen wir beste Ergebnisse.",
+        "Sehen Sie unsere moderne Korntrockungsanlage in Aktion. Diese Technik gewährleistet eine gleichmäßige und schonende Trocknung Ihres Getreides. Mit optimaler Luftzirkulation erreichen wir beste Ergebnisse.",
       textLeft: true,
     },
+
   ];
 
   return (
@@ -105,30 +106,7 @@ export function DienstleistungenPage() {
                       {service.description}
                     </p>
 
-                    {/* Features list */}
-                    <div className="mt-6">
-                      <h4 className="font-semibold text-gray-900 mb-3">
-                        Unsere Vorteile:
-                      </h4>
-                      <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-center">
-                          <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                          Modernste Trocknungstechnik
-                        </li>
-                        <li className="flex items-center">
-                          <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                          Schonende Verfahren
-                        </li>
-                        <li className="flex items-center">
-                          <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                          Qualitätsgarantie
-                        </li>
-                        <li className="flex items-center">
-                          <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                          Faire Preise
-                        </li>
-                      </ul>
-                    </div>
+
                   </div>
                 </div>
               </div>
